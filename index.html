@@ -1,0 +1,274 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Deep Talk</title>
+    </head>
+    <script src="javanese.js"></script>
+    <link href="style1.css" rel="stylesheet">
+
+
+    <body class="bg">
+        
+        <div class="row d-flex h-50 " style="margin-top: 1%;">        
+            <div class="col-md-1"></div>
+            <button class="col-md-4 d-flex justify-content-center text-white" id="card1" data-bs-toggle="modal" data-bs-target="#mycard1" onclick="deeptalk()"></button>
+            <div class="col-md-2"></div>
+            <button class="col-md-4 d-flex justify-content-center text-white" id="card2" data-bs-toggle="modal" data-bs-target="#mycard2" onclick="dadjokes()"></button>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row d-flex h-50 " style="margin-top: 1%;">        
+            <div class="col-md-1"></div>
+            <button class="col-md-4 d-flex justify-content-center text-white" id="card3" data-bs-toggle="modal" data-bs-target="#mycard3" onclick="gombal()"></button>
+            <div class="col-md-2"></div>
+            <button class="col-md-4 d-flex justify-content-center text-white" id="card4" data-bs-toggle="modal" data-bs-target="#mycard4" onclick="proud()"></button>
+            <div class="col-md-1"></div>
+        </div>
+        
+        <div class="modal" id="mycard1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+          
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Deep Talk Question</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="cls_dial()"></button>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body" id="question">
+                  Sabar ya seng loading..
+                </div>
+          
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="cls_dial()">Close</button>
+                </div>
+          
+              </div>
+            </div>
+          </div>
+
+          <div class="modal" id="mycard2">
+            <div class="modal-dialog">
+              <div class="modal-content">
+          
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Jokes Bapaks-Bapaks</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="cls_dial()"></button>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body" id="question1">
+                  Sabar ya seng loading...
+                </div>
+          
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="cls_dial()">Close</button>
+                </div>
+          
+              </div>
+            </div>
+          </div>
+
+          <div class="modal" id="mycard3">
+            <div class="modal-dialog">
+              <div class="modal-content">
+          
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Gombal lee</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="cls_dial()"></button>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body" id="question2">
+                  Sabar ya seng loading...
+                </div>
+          
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="cls_dial()">Close</button>
+                </div>
+          
+              </div>
+            </div>
+          </div>
+
+          <div class="modal" id="mycard4">
+            <div class="modal-dialog">
+              <div class="modal-content">
+          
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Pesan dari Ekel...</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="cls_dial()"></button>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body" id="question3">
+                  ...
+                </div>
+          
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="cls_dial()">Close</button>
+                </div>
+          
+              </div>
+            </div>
+          </div>
+
+
+
+
+    </body>
+    <script>
+        require('dotenv').config();
+        var API_KEY = process.env.API_Key;
+        conscole.log(API_KEY);
+        function deeptalk(){
+            text = document.getElementById('question');
+            fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyAvy6KZLCYrA1Tnh3C_ZN1vjipS15MLftk', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    contents: [
+                      {
+                        parts: [
+                          { text: 'buatkan pertanyaan random yang digunakan untuk deeptalk pada sebuah hubungan dengan tujuan untuk membangun hubungan lebih baik. jawab dengan hanya sebuah pertanyaan tanpa adanya response'},
+                        ],
+                      },
+                    ],
+                  }),
+              }).then((response) => response.json()).then((data) => {text.innerHTML = data.candidates[0].content.parts[0].text;}).catch((error) => console.error('Error:', error));
+        }
+
+        function dadjokes(){
+            
+                text = document.getElementById('question1');
+                fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyAvy6KZLCYrA1Tnh3C_ZN1vjipS15MLftk', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: [
+                          {
+                            parts: [
+                              { text: 'buatkan candaan garing bapak bapak. jawab dengan hanya sebuah pertanyaan dan jawaban tanpa adanya response. buatkan tambahan reaksi yang menarik'},
+                            ],
+                          },
+                        ],
+                      }),
+                  }).then((response) => response.json()).then((data) => {text.innerHTML = data.candidates[0].content.parts[0].text;}).catch((error) => console.error('Error:', error));
+            
+        }
+
+        function gombal(){
+            
+            text = document.getElementById('question2');
+            fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyAvy6KZLCYrA1Tnh3C_ZN1vjipS15MLftk', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    contents: [
+                      {
+                        parts: [
+                          { text: 'buatkan kalimat gombalan. jawab dengan hanya sebuah pertanyaan dan jawaban tanpa adanya response.'},
+                        ],
+                      },
+                    ],
+                  }),
+              }).then((response) => response.json()).then((data) => {text.innerHTML = data.candidates[0].content.parts[0].text;}).catch((error) => console.error('Error:', error));        
+    }
+
+    function proud(){
+            
+        text = document.getElementById('question3');
+        fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyAvy6KZLCYrA1Tnh3C_ZN1vjipS15MLftk', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                contents: [
+                  {
+                    parts: [
+                      { text: 'Berpura-puralah sebagai Ekel yang memiliki hubungan dengan Aliah selama 1 tahun. Buatlah pesan rasa sayang dan bangga terhadap Aliah dan hubungan yang telah dijalani selama 1 tahun. Buatlah secara minimalis dengan bahasa sehari-hari. jawab dengan hanya sebuah pernyataan dan jawaban tanpa adanya response. buatlah pesan yang panjang'},
+                    ],
+                  },
+                ],
+              }),
+          }).then((response) => response.json()).then((data) => {text.innerHTML = data.candidates[0].content.parts[0].text;}).catch((error) => console.error('Error:', error));        
+}
+
+
+
+        function cls_dial(){
+            text = document.getElementById('question');
+            text.innerHTML = "Sabar ya seng loading...";
+            text = document.getElementById('question1');
+            text.innerHTML = "Sabar ya seng loading...";
+            text = document.getElementById('question2');
+            text.innerHTML = "Sabar ya seng loading...";
+            text = document.getElementById('question3');
+            text.innerHTML = "Sabar ya seng loading...";
+        }
+    </script>
+
+
+    <style>
+        .bg{
+            position: sticky;
+            background-image: url('bg.jpg'); 
+            background-size: 100% 100%;
+            
+        }
+
+        #card1{
+            background-image: url('deep.png');
+            background-size: 100% 100%;
+            border-radius: 5%;
+        }
+        #card1:hover{
+            opacity: 0.8;
+            transition: 0.5s ease-in-out;
+        }
+        #card2{
+            background-image: url('joke.png');
+            background-size: 100% 100%;
+            border-radius: 5%;
+        }
+        #card2:hover{
+            opacity: 0.8;
+            transition: 0.5s ease-in-out;
+        }
+        #card3{
+            background-image: url('pl.png');
+            background-size: 100% 100%;
+            border-radius: 5%;
+        }
+        #card3:hover{
+            opacity: 0.8;
+            transition: 0.5s ease-in-out;
+        }
+        #card4{
+            background-image: url('chat.png');
+            background-size: 100% 100%;
+            background-color: black;
+            opacity: 0.5;
+            border-radius: 5%;
+        }
+        #card4:hover{
+            opacity: 0.8;
+            transition: 0.5s ease-in-out;
+        }
+
+    </style>
+</html>
