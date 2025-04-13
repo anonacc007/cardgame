@@ -125,9 +125,7 @@
 
     </body>
     <script>
-        require('dotenv').config();
-        var API_KEY = process.env.API_Key;
-        conscole.log(API_KEY);
+        
         function deeptalk(){
             text = document.getElementById('question');
             fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyAvy6KZLCYrA1Tnh3C_ZN1vjipS15MLftk', {
@@ -200,7 +198,7 @@
                 contents: [
                   {
                     parts: [
-                      { text: 'Berpura-puralah sebagai Ekel yang memiliki hubungan dengan Aliah selama 1 tahun. Buatlah pesan rasa sayang dan bangga terhadap Aliah dan hubungan yang telah dijalani selama 1 tahun. Buatlah secara minimalis dengan bahasa sehari-hari. jawab dengan hanya sebuah pernyataan dan jawaban tanpa adanya response. buatlah pesan yang panjang'},
+                      { text: 'Berpura-puralah sebagai Ekel yang memiliki hubungan dengan Aliah selama 1 tahun dan ini bukan hari anniversary. Buatlah pesan rasa sayang dan bangga terhadap Aliah dan hubungan yang telah dijalani selama 1 tahun. Buatlah secara minimalis dengan bahasa sehari-hari. jawab dengan hanya sebuah pernyataan dan jawaban tanpa adanya response. buatlah pesan yang panjang'},
                     ],
                   },
                 ],
